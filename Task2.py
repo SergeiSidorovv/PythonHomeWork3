@@ -32,4 +32,4 @@ for key, item in dictionary_letters.items():
         for i in word:
             if letter == i:
                 count_points += key
-print(dictionary_letters)
+print(count_points)
