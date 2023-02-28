@@ -13,29 +13,29 @@ list = sorted([random.randint(0, 100) for _ in range(count_numbers)])
 print(list)
 
 count_desired_number = list.count(desired_number)
-min_val = 0
-max_val = 0
+difference_smaller_numbers = 0
+difference_large_numbers = 0
 if count_desired_number >= 1:
     print(count_desired_number)
 else:
     for item in list:
         if item < desired_number:
-            if min_val == 0:
-                min_val = desired_number - item
-                min_res_val = item
+            if difference_smaller_numbers == 0:
+                difference_smaller_numbers = desired_number - item
+                nearest_small_num = item
             else:
-                if min_val > desired_number - item:
-                    min_val = desired_number - item
-                    min_res_val = item
+                if difference_smaller_numbers > desired_number - item:
+                    difference_smaller_numbers = desired_number - item
+                    nearest_small_num = item
         else:
-            if max_val == 0:
-                max_val = item - desired_number
-                max_res_val = item
+            if difference_large_numbers == 0:
+                difference_large_numbers = item - desired_number
+                nearest_large_num = item
             else:
-                if max_val > item - desired_number:
-                    max_val = item - desired_number
-                    max_res_val = item
-if max_val > min_val:
-    print(min_res_val)
+                if difference_large_numbers > item - desired_number:
+                    difference_large_numbers = item - desired_number
+                    nearest_large_num = item
+if difference_large_numbers > difference_smaller_numbers:
+    print(nearest_small_num)
 else:
-    print(max_res_val)
+    print(nearest_large_num)
